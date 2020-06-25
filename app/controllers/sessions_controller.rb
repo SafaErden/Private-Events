@@ -3,8 +3,8 @@ class SessionsController < ApplicationController
 
   end
 
-  def signin
-
+  def create
+    @user = User.where(name: params[:name])
+    session[:id] = @user.id 
   end
-
 end
