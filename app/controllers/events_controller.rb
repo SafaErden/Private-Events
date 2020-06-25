@@ -1,10 +1,13 @@
 class EventsController < ApplicationController
   before_action :set_current_user, only: [:create]
-
+  before_action :set_event, only: [:show]
   def index
+    @events=Event.all
   end
-
+  def new
+  end
   def show
+    @user=User.find(@event.user_id)
   end
 
   def create
