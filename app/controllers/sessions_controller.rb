@@ -4,8 +4,17 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.where(id:1)
-    session[:id] = @user.id 
-    redirect_to index
+    @user = User.find_by(name: params[:name])
+
+    if @user
+      flash[:notice] = 'You signed in successfully!'
+      session[:id] = @user.id
+      session[:name] = @user.name
+    else
+      flash[:alert] = 'No User found. Please sign up'
+      redirect_to new_user_path
+    end
   end
+
+
 end
