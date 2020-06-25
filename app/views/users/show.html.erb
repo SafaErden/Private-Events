@@ -2,17 +2,12 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @user.name %>
+  <%= @current_user.name %>
 </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<% @events.each do |event| %>
+  <strong>event.title</strong>
+  <small>event.date</small>
+<% end %>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<%= link_to 'Back', users_path %>
+<%#= link_to 'Back', users_path %>
