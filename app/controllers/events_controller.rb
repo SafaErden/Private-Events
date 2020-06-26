@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
   before_action :set_current_user, only: [:create]
   before_action :set_event, only: [:show]
+  before_action :authenticate_user
+  
   def index
     @events=Event.all
     @previous_events = Event.previous_events

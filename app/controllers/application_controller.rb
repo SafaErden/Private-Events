@@ -8,4 +8,12 @@ class ApplicationController < ActionController::Base
       @current_user = nil
     end
   end
+
+  def authenticate_user
+    if session[:id].nil?
+      redirect_to sessions_path
+    end
+  end
+
+
 end
