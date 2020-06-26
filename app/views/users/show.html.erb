@@ -5,9 +5,22 @@
   <%= @current_user.name %>
 </p>
 
-<% @events.each do |event| %>
-  <strong>event.title</strong>
-  <small>event.date</small>
+<h2>Created Events</h2>
+<% unless @current_user.events.nil? %>
+  <% @current_user.events.each do |event| %>
+    <p>Event: <%= event.title %></p>
+    <p>Date: <%= event.date %></p>
+  <% end %>
+<% end %>
+
+<h2>Attended Events</h2>
+<% unless @current_user.attended_events.nil? %>
+  <% @current_user.attended_events.each do |attended_event| %>
+    <div>
+      <p>Event: <%= attended_event.title %></p>
+      <p>Date: <%= attended_event.date %></p>
+    </div>
+  <% end %>
 <% end %>
 
 <%#= link_to 'Back', users_path %>
