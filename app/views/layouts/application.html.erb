@@ -18,6 +18,7 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <%= link_to 'Events', events_path, class: "nav-item nav-link" %>
+      <%= link_to 'Invite People', invites_path, class: "nav-item nav-link" %>
       <% if session[:id].nil? %>
         <%= link_to 'Log in', sessions_path, class: "nav-item nav-link" %>
       <% else %>
