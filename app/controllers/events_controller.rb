@@ -7,7 +7,6 @@ class EventsController < ApplicationController
   def new
   end
   def show
-    @user=User.find(@event.user_id)
   end
 
   def create
@@ -31,7 +30,7 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.permit(:title, :description)
+      params.permit(:title, :description, :date)
     end
 end
 

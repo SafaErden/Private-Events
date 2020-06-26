@@ -13,12 +13,22 @@
   <% end %>
 <% end %>
 
-<h2>Attended Events</h2>
-<% unless @current_user.attended_events.nil? %>
-  <% @current_user.attended_events.each do |attended_event| %>
+<h2>Previous Events</h2>
+<% unless @previous_events.nil? %>
+  <% @previous_events.each do |attended_event| %>
     <div>
-      <p>Event: <%= attended_event.title %></p>
-      <p>Date: <%= attended_event.date %></p>
+      <p>Event: <%= attended_event.try(:title) %></p>
+      <p>Date: <%= attended_event.try(:date) %></p>
+    </div>
+  <% end %>
+<% end %>
+
+<h2>Upcoming Events</h2>
+<% unless @upcoming_events.nil? %>
+  <% @upcoming_events.each do |attended_event| %>
+    <div>
+      <p>Event: <%= attended_event.try(:title) %></p>
+      <p>Date: <%= attended_event.try(:date) %></p>
     </div>
   <% end %>
 <% end %>
