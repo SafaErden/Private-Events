@@ -1,6 +1,6 @@
 <% unless @event.nil? %>
   <h2>Event title: <%= @event.title %></h2>
-  <p>Event's Creator: <%= @event.creator.name %></p>
+  <p>Event's Creator: <%= @event.creator.try(:name) %></p>
 <% end %>
 
 <% unless @event.attendees.nil? %>
