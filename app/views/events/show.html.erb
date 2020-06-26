@@ -1,4 +1,13 @@
-<h1>The creator of the event</h1>
+<% unless @event.nil? %>
+  <h2>Event title: <%= @event.title %></h2>
+  <p>Event's Creator: <%= @event.creator %></p>
+<% end %>
 
-<h2>Event title: <%= @event.title %></h2>
-<p>Event's Creator: <%= @user.name %></p>
+<% unless @event.attendees.nil? %>
+  <% @event.attendees.each do |attendee| %>
+    <div>
+      <p>Name: <%= attendee.name %></p>
+      <p>Contact: <%= attendee.email %></p>
+    </div>
+  <% end %>
+<% end %>
