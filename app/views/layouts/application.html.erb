@@ -18,8 +18,14 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Events</a>
-      <a class="nav-item nav-link" href="#">Log out</a>
+      <!-- <a class="nav-item nav-link" href="#">Events</a> -->
+      <%= link_to 'Events', events_path, class: "nav-item nav-link" %>
+      <% unless session[:id].nil? %>
+        <%= link_to 'Log out', session_path, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "nav-item nav-link" %>
+      <% else %>
+        <%= link_to 'Log in', sessions_path, class: "nav-item nav-link" %>
+      <% end %>
+      <!-- <a class="nav-item nav-link" href="#">Log out</a> -->
     </div>
   </div>
 </nav>
