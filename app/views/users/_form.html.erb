@@ -12,21 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name, class: "h3 font-weight-bold d-block"%>
+    <%= form.text_field :name, class: "h5 font-weight-bold d-block border-rounded w-75 mx-auto mt-3 mb-5"%>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.label :email, class: "h3 font-weight-bold d-block"%>
+    <%= form.text_field :email, class: "h5 font-weight-bold d-block border-rounded w-75 mx-auto mt-3 mb-5"%>
   </div>
 
   <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
+    <%= form.label :password, class: "h3 font-weight-bold d-block"%>
+    <%= form.password_field :password, class: "h5 font-weight-bold d-block border-rounded w-75 mx-auto mt-3 mb-5"%>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit  class: "btn-primary py-3 px-5 border-0 rounded-pill" %>
   </div>
 <% end %>

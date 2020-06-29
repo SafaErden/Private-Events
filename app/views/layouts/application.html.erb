@@ -10,17 +10,17 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Private Events</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <nav class="navbar navbar-expand-lg navbar-primary bg-primary text-white">
+  <a class="navbar-brand  text-white" href="#">Private Events</a>
+  <button class="navbar-toggler  btn btn-light" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon text-white"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <%= link_to 'Events', events_path, class: "nav-item nav-link" %>
-      <%= link_to 'Invite People', invites_path, class: "nav-item nav-link" %>
+  <div class="collapse navbar-collapse  text-white" id="navbarNavAltMarkup">
+    <div class="navbar-nav  text-white">
+      <%= link_to 'Events', events_path, class: "nav-item nav-link  text-white" %>
+      <%= link_to 'Invite People', invites_path, class: "nav-item nav-link  text-white" %>
       <% if session[:id].nil? %>
-        <%= link_to 'Log in', sessions_path, class: "nav-item nav-link" %>
+        <%= link_to 'Log in', sessions_path, class: "nav-item nav-link  text-white" %>
       <% else %>
       <%#= session[:id] %>
         <%= link_to 'Log out', session_path(session), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "nav-item nav-link" %>
@@ -29,14 +29,14 @@
   </div>
 </nav>
 <% if flash[:notice] %>
-<div "notification is-primary global-notification">
-  <p class="notice"><%= notice %></p>
+<div class="border border-success text-success p-3 text-center mb-3">
+  <p class="h3 p-0 m-0"><%= notice %></p>
 </div>
 <% end %>
 
 <% if flash[:alert] %>
-<div "notification is-danger global-notification">
-  <p class="alert"><%= alert %></p>
+<div class="border border-danger text-danger p-3 text-center  mb-3">
+  <p class="h3 p-0 m-0"><%= alert %></p>
   </div>
 <% end %>
     <%= yield %>
