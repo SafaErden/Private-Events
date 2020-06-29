@@ -28,6 +28,17 @@
     </div>
   </div>
 </nav>
+<% if flash[:notice] %>
+<div "notification is-primary global-notification">
+  <p class="notice"><%= notice %></p>
+</div>
+<% end %>
+
+<% if flash[:alert] %>
+<div "notification is-danger global-notification">
+  <p class="alert"><%= alert %></p>
+  </div>
+<% end %>
     <%= yield %>
   </body>
 </html>

@@ -3,8 +3,11 @@ class InvitesController < ApplicationController
   before_action :authenticate_user
 
   def index
-    @users=User.all 
-    @events=@current_user.events
+    #@users=User.all 
+    #@events=@current_user.events
+    
+    @user_options = User.all.map{ |u| [ u.name, u.id ] }
+    @events_options = @current_user.events.map{ |u| [ u.title, u.id ] } unless @current_user.events.nil?
   end
 
   def create
@@ -12,7 +15,7 @@ class InvitesController < ApplicationController
     @invitation.attendee_id=params[:user_id] 
     @invitation.attended_event_id=params[:event_id] 
 
-    if @invitation.save
+    if @invitation.save!
       flash[:notice] = 'Invitaion completed successfully'
       redirect_to events_path
     else

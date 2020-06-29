@@ -1,20 +1,11 @@
 <%= form_with(model: user, local: true) do |form| %>
   
-  <%= select("event", "event_id") do %>
-    <% @events.each do |c| %>
-      <%= content_tag(:option, c.title, value: c.id) %>
-    <% end %>
-  <% end %>
-  
-  <%= select("user", "user_id") do %>
-    <% @users.each do |c| %>
-      <% unless c.id == @current_user.id  %>
-        <%= content_tag(:option, c.name, value: c.id) %>
-        <% end %>
-     <% end %>
-  <% end %>
+  <%= select_tag(:user_id, options_for_select(@user_options)) %>
+  <%= select_tag(:event_id, options_for_select(@events_options)) %>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+
