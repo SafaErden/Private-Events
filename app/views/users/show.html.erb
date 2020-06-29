@@ -1,36 +1,48 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @current_user.name %>
-</p>
+<div class="container">
+<div class="row d-flex justify-content-center">
+  <div class="col-12 col-md-9 m-5 text-center border border-primary rounded py-5">
+      
+      <p id="notice"><%= notice %></p>
 
-<h2>Created Events</h2>
-<% unless @current_user.events.nil? %>
-  <% @current_user.events.each do |event| %>
-    <p>Event: <%= event.title %></p>
-    <p>Date: <%= event.date %></p>
-  <% end %>
-<% end %>
+        <div class="mb-5">
+          <strong class="h3 text-danger font-weight-bold">Name</strong>
+          <div class="h3 font-weight-bold"><%= @current_user.name %></div>
+        </div>
 
-<h2>Previous Events</h2>
-<% unless @previous_events.nil? %>
-  <% @previous_events.each do |attended_event| %>
-    <div>
-      <p>Event: <%= attended_event.try(:title) %></p>
-      <p>Date: <%= attended_event.try(:date) %></p>
-    </div>
-  <% end %>
-<% end %>
+        <h2 class="text-primary mb-5">Created Events</h2>
+        <% unless @current_user.events.nil? %>
+          <% @current_user.events.each do |event| %>
+            <hr/>
+            <p><%= event.title %></p>
+            <p>Date: <%= event.date %></p>
+            <hr/>
+          <% end %>
+        <% end %>
 
-<h2>Upcoming Events</h2>
-<% unless @upcoming_events.nil? %>
-  <% @upcoming_events.each do |attended_event| %>
-    <div>
-      <p>Event: <%= attended_event.try(:title) %></p>
-      <p>Date: <%= attended_event.try(:date) %></p>
-    </div>
-  <% end %>
-<% end %>
+        <h2 class="text-primary mb-5">Previous Events</h2>
+        <% unless @previous_events.nil? %>
+          <% @previous_events.each do |attended_event| %>
+            <hr/>
+              <p><%= attended_event.try(:title) %></p>
+              <p>Date: <%= attended_event.try(:date) %></p>
+              <hr/>
+          <% end %>
+        <% end %>
 
-<%#= link_to 'Back', users_path %>
+        <h2 class="text-primary mb-5">Upcoming Events</h2>
+        <% unless @upcoming_events.nil? %>
+          <% @upcoming_events.each do |attended_event| %>
+            <hr/>
+              <p><%= attended_event.try(:title) %></p>
+              <p>Date: <%= attended_event.try(:date) %></p>
+              <hr/>
+          <% end %>
+        <% end %>
+
+        <%#= link_to 'Back', users_path %>
+
+   </div>
+</div>
+</div>
+
