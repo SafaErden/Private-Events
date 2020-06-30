@@ -10,10 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user
-    if session[:id].nil?
-      redirect_to sessions_path
-    end
+    redirect_to sessions_path if session[:id].nil?
   end
-
-
 end

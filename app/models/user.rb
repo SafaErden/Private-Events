@@ -7,12 +7,11 @@ class User < ApplicationRecord
   validates :email, length: { minimum: 12 }
   validates :name, length: { minimum: 3 }
 
-
   def previous_events
-    events.select{ |event| event  if event.date!=nil && event.date<= Date.today}
+    events.select { |event| event if !event.date.nil? && event.date <= Date.today }
   end
 
   def upcoming_events
-    events.select{ |event| event  if event.date!=nil && event.date> Date.today}
+    events.select { |event| event if !event.date.nil? && event.date > Date.today }
   end
 end

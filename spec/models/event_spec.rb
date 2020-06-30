@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-
   describe 'validations' do
     it { should validate_presence_of(:title) }
     it { should validate_presence_of(:description) }
@@ -13,5 +12,4 @@ RSpec.describe Event, type: :model do
     it { should have_many(:event_attendees).with_foreign_key(:attended_event_id) }
     it { should have_many(:attendees).through(:event_attendees) }
   end
-
 end

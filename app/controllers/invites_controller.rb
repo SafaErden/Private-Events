@@ -3,17 +3,17 @@ class InvitesController < ApplicationController
   before_action :authenticate_user
 
   def index
-    #@users=User.all 
-    #@events=@current_user.events
-    
-    @user_options = User.all.map{ |u| [ u.name, u.id ] }
-    @events_options = @current_user.events.map{ |u| [ u.title, u.id ] } unless @current_user.events.nil?
+    # @users=User.all
+    # @events=@current_user.events
+
+    @user_options = User.all.map { |u| [u.name, u.id] }
+    @events_options = @current_user.events.map { |u| [u.title, u.id] } unless @current_user.events.nil?
   end
 
   def create
     @invitation = EventAttendee.new
-    @invitation.attendee_id=params[:user_id] 
-    @invitation.attended_event_id=params[:event_id] 
+    @invitation.attendee_id = params[:user_id]
+    @invitation.attended_event_id = params[:event_id]
 
     if @invitation.save!
       flash[:notice] = 'Invitaion completed successfully'
@@ -22,12 +22,11 @@ class InvitesController < ApplicationController
       flash[:alert] = 'There was an error. Please try again'
       redirect_to invites_path
     end
-
   end
 
-    private
+  private
 
-    def invite_params
-      params.permit(:event_id, :user_id)
-    end
+  def invite_params
+    params.permit(:event_id, :user_id)
+  end
 end

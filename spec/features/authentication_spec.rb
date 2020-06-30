@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.feature 'Authentications', type: :feature do
   before :each do
@@ -9,7 +9,7 @@ RSpec.feature 'Authentications', type: :feature do
     fill_in 'user[name]', with: 'User'
     fill_in 'user[email]', with: 'email@user.com'
     fill_in 'user[password]', with: 'asdqwe123'
-    
+
     click_button 'commit'
     expect(page).to have_content('Please Sign In')
     expect(page).to have_content('Name')

@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.feature 'Authentications', type: :feature do
   before :each do
@@ -19,4 +19,3 @@ RSpec.feature 'Authentications', type: :feature do
     expect(page).to have_content('Creator')
   end
 end
-
