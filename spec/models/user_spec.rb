@@ -23,7 +23,7 @@ RSpec.describe User, type: :model do
   end
 
    it "is not valid without a name of minimum length 3 characters" do
-    user = User.new(name: 'Safa', email: "me@mine.com")
+    user = User.new(name: 'Sa', email: "me@mine.com")
     expect(user).to_not be_valid
   end
 
