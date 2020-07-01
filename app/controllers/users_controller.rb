@@ -15,6 +15,8 @@ class UsersController < ApplicationController
     @events = @current_user.events
     @previous_events = @current_user.previous_events
     @upcoming_events = @current_user.upcoming_events
+    @attended_events = @current_user.attended_events.previous_events
+    @invited_events = @current_user.attended_events.upcoming_events
   end
 
   # GET /users/new

@@ -10,19 +10,29 @@
           <div class="h3 font-weight-bold"><%= @current_user.name %></div>
         </div>
 
-        <h2 class="text-primary mb-5">Created Events</h2>
-        <% unless @current_user.events.nil? %>
-          <% @current_user.events.each do |event| %>
+        <h2 class="text-primary mb-5">Previous Events</h2>
+        <% unless @previous_events.nil? %>
+          <% @previous_events.each do |previous_event| %>
             <hr/>
-            <p><%= event.title %></p>
-            <p>Date: <%= event.date %></p>
-            <hr/>
+              <p><%= previous_event.try(:title) %></p>
+              <p>Date: <%= previous_event.try(:date) %></p>
+              <hr/>
           <% end %>
         <% end %>
 
-        <h2 class="text-primary mb-5">Previous Events</h2>
-        <% unless @previous_events.nil? %>
-          <% @previous_events.each do |attended_event| %>
+        <h2 class="text-primary mb-5">Upcoming Events</h2>
+        <% unless @upcoming_events.nil? %>
+          <% @upcoming_events.each do |upcoming_event| %>
+            <hr/>
+              <p><%= upcoming_event.try(:title) %></p>
+              <p>Date: <%= upcoming_event.try(:date) %></p>
+              <hr/>
+          <% end %>
+        <% end %>
+
+        <h2 class="text-primary mb-5">Attended Events</h2>
+        <% unless @attended_events.nil? %>
+          <% @attended_events.each do |attended_event| %>
             <hr/>
               <p><%= attended_event.try(:title) %></p>
               <p>Date: <%= attended_event.try(:date) %></p>
@@ -30,12 +40,12 @@
           <% end %>
         <% end %>
 
-        <h2 class="text-primary mb-5">Upcoming Events</h2>
-        <% unless @upcoming_events.nil? %>
-          <% @upcoming_events.each do |attended_event| %>
+        <h2 class="text-primary mb-5">Events Invited To</h2>
+        <% unless @invited_events.nil? %>
+          <% @invited_events.each do |invited_event| %>
             <hr/>
-              <p><%= attended_event.try(:title) %></p>
-              <p>Date: <%= attended_event.try(:date) %></p>
+              <p><%= invited_event.try(:title) %></p>
+              <p>Date: <%= invited_event.try(:date) %></p>
               <hr/>
           <% end %>
         <% end %>
