@@ -19,9 +19,10 @@ RSpec.feature 'Authentications', type: :feature do
     visit sessions_path
     fill_in 'name', with: 'User'
     click_button 'commit'
-    expect(page).to have_content('Created Events')
     expect(page).to have_content('Previous Events')
     expect(page).to have_content('Upcoming Events')
+    expect(page).to have_content('Attended Events')
+    expect(page).to have_content('Events Invited To')
   end
 
   it 'Should Log out' do
