@@ -1,0 +1,23 @@
+
+<div class="container">
+<div class="row d-flex justify-content-center">
+  <div class="col-12 col-md-9 m-5 text-center border border-primary rounded py-5">
+      
+      <% unless @event.nil? %>
+        <h2 class="text-primary mb-5"><strong>Event Title: <br/> <%= @event.title %></h2>
+        
+        <p class="h3"><strong>Creator:</strong> <%= @event.creator.try(:name) %></p>
+      <% end %>
+
+      <% unless @event.attendees.nil? %>
+        <% @event.attendees.each do |attendee| %>
+          <div>
+            <p class="h4"><strong>Name:</strong> <%= attendee.name %></p>
+            <p class="h5"><strong>Contact:</strong> <%= attendee.email %></p>
+          </div>
+        <% end %>
+      <% end %>
+
+   </div>
+</div>
+</div>

@@ -1,0 +1,11 @@
+<%= form_with(model: user, local: true) do |form| %>
+  
+  <%= select_tag(:user_id, options_for_select(@user_options), class: "h5 font-weight-bold d-block border-rounded w-75 mx-auto mt-3 mb-5") %>
+  <%= select_tag(:event_id, options_for_select(@events_options), class: "h5 font-weight-bold d-block border-rounded w-75 mx-auto mt-3 mb-5") %>
+
+  <div class="actions">
+    <%= form.submit  class: "btn-primary py-3 px-5 border-0 rounded-pill"%>
+  </div>
+<% end %>
+
+
